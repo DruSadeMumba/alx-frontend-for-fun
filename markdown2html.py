@@ -12,7 +12,7 @@ def parse_headings(md_text):
             text = line[level:].strip()
             html_text += f"<h{level}>{text}</h{level}>\n"
         else:
-            html_text += f"{line}\n"
+            html_text += f"{line}"
     return html_text
 
 
