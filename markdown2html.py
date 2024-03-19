@@ -1,16 +1,30 @@
 #!/usr/bin/python3
 """Markdown to HTML"""
 import sys
-import markdown
+
+
+def parse_headings(md_text):
+    """Parse headings"""
+    html_text = ""
+    for line in md_text.split('\n'):
+        if line.startswith("#"):
+            level = line.count("#")
+            text = line[level:].strip()
+            html_text += f"<h{level}>{text}</h{level}>\n"
+        else:
+            html_text += f"{line}\n"
+    return html_text
 
 
 def markdown2html(md_file, html_file):
     """Convert md file to html file"""
     try:
         with open(md_file, 'r') as f:
-            f.read()
-            if md_file and html_file:
-                sys.exit(0)
+            md_text = f.read()
+            html_text = parse_headings(md_text)
+            with open(html_file, 'w') as out_f:
+                out_f.write(html_text)
+            sys.exit(0)
     except FileNotFoundError:
         print(f"Missing {md_file}", file=sys.stderr)
         sys.exit(1)
