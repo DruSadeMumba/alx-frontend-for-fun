@@ -16,12 +16,28 @@ def parse_headings(md_text):
     return html_text
 
 
+def parse_unordered_list(md_text):
+    """Parse unordered listing"""
+    html_text = ""
+    for line in md_text.split("\n"):
+        if line.startswith("-"):
+            html_text += f"<ul>\n"
+            text = line[1:].strip()
+            for ln in text.split("-"):
+                html_text += f"<li>{ln}</li>\n"
+            html_text += f"</ul>\n"
+        else:
+            html_text += f"{line}\n"
+    return html_text
+
+
 def markdown2html(md_file, html_file):
     """Convert md file to html file"""
     try:
         with open(md_file, 'r') as f:
             md_text = f.read()
             html_text = parse_headings(md_text)
+            html_text = parse_unordered_list(html_text)
             with open(html_file, 'w') as out_f:
                 out_f.write(html_text)
             sys.exit(0)
