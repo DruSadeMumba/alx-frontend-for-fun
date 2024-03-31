@@ -1,0 +1,77 @@
+/* Time-machine boxes */
+
+/* Variables
+   ============================= */
+
+:root {
+    --color-default: white;
+    --color-box-1: #1ecd6d;
+    --color-box-2: #2e98de;
+    --color-box-3: #344a61;
+    --color-box-4: #9d55b9;
+    --color-box-5: #e97b08;
+}
+
+body {
+    background-color: var(--color-default);
+    color: var(--color-default);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border-top: var(--color-default) 3.5vw solid;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1 {
+    background-color: var(--color-box-1);
+}
+
+.box2 {
+    background-color: var(--color-box-2);
+}
+
+.box3 {
+    background-color: var(--color-box-3);
+}
+
+.box4 {
+    background-color: var(--color-box-4);
+}
+
+.box5 {
+    background-color: var(--color-box-5);
+}
+
+.box1, .box5 {
+    flex-grow: 0;
+    flex-basis: 25%;
+    height: calc(5vw + 5vh);
+    font-size: 3vw;
+    border-bottom: 2.5vw solid var(--color-default);
+}
+
+.box2, .box4 {
+    flex-grow: 0;
+    flex-basis: 40%;
+    height: calc(7vw + 7vh);
+    font-size: 6vw;
+    border-bottom: 1.5vw solid var(--color-default);
+}
+
+.box3 {
+    flex-grow: 0;
+    flex-basis: 70%;
+    height: calc(10vw + 10vh);
+    font-size: 9vw;
+}
