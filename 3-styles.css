@@ -80,7 +80,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-open-button > .menu-line-1 {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateX(2px) translateY(1px)
 }
 
 .menu-open:checked ~ .menu-open-button > .menu-line-2 {
