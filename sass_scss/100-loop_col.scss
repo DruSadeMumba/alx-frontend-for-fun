@@ -1,5 +1,5 @@
 /* For loop */
-@for $i from 1 through 5 {
+@for $i from 1 through 4 {
   .col-#{$i} {
     width: 100% / $i;
   }
